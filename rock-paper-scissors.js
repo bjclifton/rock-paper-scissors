@@ -19,26 +19,41 @@ function computerPlay() {
 
 function singleRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
-    if(playerSelection === computerSelection) return `It's a Draw! ${playerSelection} ties ${computerSelection}`
+    
+    if(playerSelection === computerSelection) return `It's a Draw! ${playerSelection} ties ${computerSelection}`;
+
+    if(!(playerSelection === 'rock' || playerSelection === 'scissors' || playerSelection === 'paper')) return `Invalid Option!`;
 
     if(playerSelection === 'rock' && computerSelection === 'scissors') {
         return `You Win! Rock beats Scissors`;
     }
-    else {
+    else if(playerSelection === 'rock') {
         return `You Lose! Paper beats Rock`;
     }
 
     if(playerSelection === 'paper' && computerSelection === 'rock') {
         return `You Win! Paper beats Rock`;
     }
-    else {
+    else if(playerSelection === 'paper') {
         return `You Lose! Scissors beats Paper`;
     }
 
     if(playerSelection === 'scissors' && computerSelection === 'paper') {
         return `You Win! Scissors beats Paper`;
     }
-    else {
+    else if(playerSelection === 'scissors') {
         return `You Lose! Rock beats Scissors`;
     }
 }
+
+//use a for loop to play 5 rounds of rock paper scissors
+//use prompt to get the user input
+//output result in console.log
+
+function game() {
+    for(let i = 0; i < 5; i++) {
+        console.log(singleRound(prompt('Choose: Rock, Paper, or Scissors'), computerPlay()));
+    }
+}
+
+game();
