@@ -17,25 +17,25 @@ function computerPlay() {
 //compare the two moves using if else statements
 //return whether the user wins or loses and what the two moves were
 
-function singleRound(userPlay, computerPlay) {
-    userPlay = userPlay.toLowerCase();
-    if(userPlay === computerPlay) return `It's a Draw! ${userPlay} ties ${computerPlay}`
+function singleRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    if(playerSelection === computerSelection) return `It's a Draw! ${playerSelection} ties ${computerSelection}`
 
-    if(userPlay === 'rock' && computerPlay === 'scissors') {
+    if(playerSelection === 'rock' && computerSelection === 'scissors') {
         return `You Win! Rock beats Scissors`;
     }
     else {
         return `You Lose! Paper beats Rock`;
     }
 
-    if(userPlay === 'paper' && computerPlay === 'rock') {
+    if(playerSelection === 'paper' && computerSelection === 'rock') {
         return `You Win! Paper beats Rock`;
     }
     else {
         return `You Lose! Scissors beats Paper`;
     }
 
-    if(userPlay === 'scissors' && computerPlay === 'paper') {
+    if(playerSelection === 'scissors' && computerSelection === 'paper') {
         return `You Win! Scissors beats Paper`;
     }
     else {
