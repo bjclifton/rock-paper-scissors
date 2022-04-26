@@ -1,8 +1,8 @@
 //Generate a random number between one and three
 //Based on the number, return either rock, paper, or scissors
 function computerPlay() {
-    let move = Math.floor(Math.random()*3) + 1;
-    switch(move) {
+    let move = Math.floor(Math.random() * 3) + 1;
+    switch (move) {
         case 1:
             return 'rock';
         case 2:
@@ -19,29 +19,29 @@ function computerPlay() {
 
 function singleRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
-    
-    if(playerSelection === computerSelection) return `It's a Draw! ${playerSelection} ties ${computerSelection}`;
 
-    if(!(playerSelection === 'rock' || playerSelection === 'scissors' || playerSelection === 'paper')) return `Invalid Option!`;
+    if (playerSelection === computerSelection) return `It's a Draw! ${playerSelection} ties ${computerSelection}`;
 
-    if(playerSelection === 'rock' && computerSelection === 'scissors') {
+    if (!(playerSelection === 'rock' || playerSelection === 'scissors' || playerSelection === 'paper')) return `Invalid Option!`;
+
+    if (playerSelection === 'rock' && computerSelection === 'scissors') {
         return `You Win! Rock beats Scissors`;
     }
-    else if(playerSelection === 'rock') {
+    else if (playerSelection === 'rock') {
         return `You Lose! Paper beats Rock`;
     }
 
-    if(playerSelection === 'paper' && computerSelection === 'rock') {
+    if (playerSelection === 'paper' && computerSelection === 'rock') {
         return `You Win! Paper beats Rock`;
     }
-    else if(playerSelection === 'paper') {
+    else if (playerSelection === 'paper') {
         return `You Lose! Scissors beats Paper`;
     }
 
-    if(playerSelection === 'scissors' && computerSelection === 'paper') {
+    if (playerSelection === 'scissors' && computerSelection === 'paper') {
         return `You Win! Scissors beats Paper`;
     }
-    else if(playerSelection === 'scissors') {
+    else if (playerSelection === 'scissors') {
         return `You Lose! Rock beats Scissors`;
     }
 }
@@ -51,7 +51,7 @@ function singleRound(playerSelection, computerSelection) {
 //output result in console.log
 
 function game() {
-    for(let i = 0; i < 5; i++) {
+    for (let i = 0; i < 5; i++) {
         console.log(singleRound(prompt('Choose: Rock, Paper, or Scissors'), computerPlay()));
     }
 }
