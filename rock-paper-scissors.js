@@ -1,5 +1,14 @@
+let rock = document.querySelector('#rock');
+let paper = document.querySelector('#paper');
+let scissors = document.querySelector('#scissors');
+let output = document.querySelector('.output');
+let scoreboard = document.querySelector('.score');
+
+let compScore = 0;
+let userScore = 0;
+
 //Generate a random number between one and three
-//Based on the number, return either rock, paper, or scissors
+//Based on the number, outputText(either rock, paper, or scissors
 function computerPlay() {
     let move = Math.floor(Math.random() * 3) + 1;
     switch (move) {
@@ -15,45 +24,52 @@ function computerPlay() {
 //take user play and computer play as inputs
 //make them case insensitive using .toLowerCase()
 //compare the two moves using if else statements
-//return whether the user wins or loses and what the two moves were
+//outputText(whether the user wins or loses and what the two moves were
 
 function singleRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-
-    if (playerSelection === computerSelection) return `It's a Draw! ${playerSelection} ties ${computerSelection}`;
-
-    if (!(playerSelection === 'rock' || playerSelection === 'scissors' || playerSelection === 'paper')) return `Invalid Option!`;
-
-    if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return `You Win! Rock beats Scissors`;
+    if (playerSelection === computerSelection) {
+        outputText(`It's a Draw! ${playerSelection} ties ${computerSelection}`);
     }
-    else if (playerSelection === 'rock') {
-        return `You Lose! Paper beats Rock`;
+    
+    if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        outputText(`You Win! Rock beats Scissors`);
+        userScore++;
+    }
+    else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        outputText(`You Lose! Paper beats Rock`);
+        compScore++;
     }
 
     if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return `You Win! Paper beats Rock`;
+        outputText(`You Win! Paper beats Rock`);
+        userScore++;
     }
-    else if (playerSelection === 'paper') {
-        return `You Lose! Scissors beats Paper`;
+    else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        outputText(`You Lose! Scissors beats Paper`);
+        compScore++;
     }
 
     if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return `You Win! Scissors beats Paper`;
+        outputText(`You Win! Scissors beats Paper`);
+        userScore++;
     }
-    else if (playerSelection === 'scissors') {
-        return `You Lose! Rock beats Scissors`;
+    else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        outputText(`You Lose! Rock beats Scissors`);
+        compScore++;
     }
+    scoreUpdate();
 }
 
-//use a for loop to play 5 rounds of rock paper scissors
-//use prompt to get the user input
-//output result in console.log
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log(singleRound(prompt('Choose: Rock, Paper, or Scissors'), computerPlay()));
-    }
+let outputText = function(str) {
+    output.textContent = str;
 }
 
-game();
+let scoreUpdate = function() {
+    scoreboard.textContent = `User: ${userScore}    Computer: ${compScore}`;
+}
+
+scoreUpdate();
+outputText(`Select a move`)
+rock.addEventListener('click', () => singleRound('rock', computerPlay()));
+paper.addEventListener('click', () => singleRound('paper', computerPlay()));
+scissors.addEventListener('click', () => singleRound('scissors', computerPlay()));

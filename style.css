@@ -1,0 +1,55 @@
+body {
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #c7c7c7;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+}
+
+.ui {
+    font-family: 'Bebas Neue', cursive;
+    align-self: center;
+    padding: 32px 32px;
+    font-size: 32px;
+    width: 200px;
+    margin: 0 25px;
+    background-color: #eb7878;
+}
+
+.title {
+    text-shadow: 5px 5px red;
+    -webkit-text-stroke: #eee 2px;
+    font-size: 128px;
+    margin: 0;
+}
+
+button {
+    border-radius: 20px;
+}
+
+.output {
+    margin: 25px;
+    font-size: 64px;
+    -webkit-text-stroke: red 2px;
+}
+
+img {
+    flex: 0 0 auto;
+    width: 250px;
+    height: auto;
+    margin: 50px;
+}
+
+.score {
+    font-size: 45px;
+}
